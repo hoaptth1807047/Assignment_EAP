@@ -100,3 +100,4 @@ D:\source\repos\Assignment_EAP\Assignment_EAP\bin\PagedList.dll
 D:\source\repos\Assignment_EAP\Assignment_EAP\bin\PagedList.Mvc.dll
 D:\source\repos\Assignment_EAP\Assignment_EAP\bin\PagedList.xml
 D:\source\repos\Assignment_EAP\Assignment_EAP\bin\PagedList.Mvc.xml
+D:\source\repos\Assignment_EAP\Assignment_EAP\obj\Debug\Assignment_EAP.Migrations.AddData.resources

@@ -13,5 +13,8 @@ namespace Assignment_EAP.Models
         {
 
         }
+        public System.Data.Entity.DbSet<Assignment_EAP.Models.Market> Markets { get; set; }
+
+        public System.Data.Entity.DbSet<Assignment_EAP.Models.Coin> Coins { get; set; }
     }
 }

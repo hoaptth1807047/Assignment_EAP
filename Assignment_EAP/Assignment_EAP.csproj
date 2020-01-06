@@ -164,13 +164,19 @@
     <Compile Include="Areas\Admin\Controllers\ManageRolesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageUsersController.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\CoinsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MarketsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202001060934138_InitData.cs" />
     <Compile Include="Migrations\202001060934138_InitData.Designer.cs">
       <DependentUpon>202001060934138_InitData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001061700580_AddData.cs" />
+    <Compile Include="Migrations\202001061700580_AddData.Designer.cs">
+      <DependentUpon>202001061700580_AddData.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -229,6 +235,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Accounts\Login.cshtml" />
     <Content Include="Views\Accounts\Register.cshtml" />
+    <Content Include="Views\Coins\Index.cshtml" />
+    <Content Include="Views\Coins\Create.cshtml" />
+    <Content Include="Views\Coins\Details.cshtml" />
+    <Content Include="Views\Markets\Create.cshtml" />
+    <Content Include="Views\Markets\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -250,6 +261,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202001060934138_InitData.resx">
       <DependentUpon>202001060934138_InitData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001061700580_AddData.resx">
+      <DependentUpon>202001061700580_AddData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
