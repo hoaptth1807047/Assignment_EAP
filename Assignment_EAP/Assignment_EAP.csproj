@@ -178,9 +178,14 @@
     <Compile Include="Migrations\202001061700580_AddData.Designer.cs">
       <DependentUpon>202001061700580_AddData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001070347400_UpdateData.cs" />
+    <Compile Include="Migrations\202001070347400_UpdateData.Designer.cs">
+      <DependentUpon>202001070347400_UpdateData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AppRole.cs" />
+    <Compile Include="Models\Assignment_EAPContext.cs" />
     <Compile Include="Models\Coin.cs" />
     <Compile Include="Models\Market.cs" />
     <Compile Include="Models\MyDBContext.cs" />
@@ -240,6 +245,7 @@
     <Content Include="Views\Coins\Details.cshtml" />
     <Content Include="Views\Markets\Create.cshtml" />
     <Content Include="Views\Markets\Index.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -264,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001061700580_AddData.resx">
       <DependentUpon>202001061700580_AddData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001070347400_UpdateData.resx">
+      <DependentUpon>202001070347400_UpdateData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

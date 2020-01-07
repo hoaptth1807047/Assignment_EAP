@@ -15,9 +15,24 @@ namespace Assignment_EAP.Controllers
         private MyDBContext db = new MyDBContext();
 
         // GET: Coins
-        public ActionResult Index()
+        public ActionResult Index(string market, string searchKeyword, string currentFilter)
         {
             var coins = db.Coins.Include(c => c.Market);
+
+            if (searchKeyword == null)
+            {
+                searchKeyword = currentFilter;
+            }
+
+
+            ViewBag.CurrentFilter = searchKeyword;
+
+            coins = from c in db.Coins select c;
+            if (!string.IsNullOrEmpty(searchKeyword))
+            {
+                coins = coins.Where(s => s.Name.Contains(searchKeyword) && s.MarketId.Contains(market));
+            }
+
             return View(coins.ToList());
         }
 
@@ -32,7 +47,7 @@ namespace Assignment_EAP.Controllers
             Coin coin = db.Coins.Find(id);
             if (coin == null)
             {
-                return HttpNotFound();
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
             return View(coin);
@@ -54,9 +69,6 @@ namespace Assignment_EAP.Controllers
                 "Id, Name, BaseAsset, QuoteAsset, LastPrice, Volumn24h, MarketId, CreatedAt, UpdatedAt, Status")]
             Coin coin)
         {
-            coin.Id = Convert.ToInt32(coin.BaseAsset + "_" + coin.QuoteAsset + "_" + coin.MarketId);
-            coin.CreateAt = DateTime.Now;
-            coin.UpdatedAt = DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.Coins.Add(coin);
@@ -66,6 +78,15 @@ namespace Assignment_EAP.Controllers
 
             ViewBag.MarketId = new SelectList(db.Markets, "Id", "Name", coin.MarketId);
             return View(coin);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

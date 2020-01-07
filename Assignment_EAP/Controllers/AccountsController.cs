@@ -43,7 +43,6 @@ namespace Assignment_EAP.Controllers
             return Redirect("/Home");
         }
 
-        // GET: Accounts
         public ActionResult Register()
         {
             return View();
@@ -97,15 +96,10 @@ namespace Assignment_EAP.Controllers
 
         public ActionResult Logout()
         {
-            var authenticationManager = System.Web.HttpContext.Current
-                .GetOwinContext().Authentication;
+            var authenticationManager = System.Web.HttpContext.Current.GetOwinContext().Authentication;
             authenticationManager.SignOut();
             return View("Login");
         }
 
-        public ActionResult Index()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

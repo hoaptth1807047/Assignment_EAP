@@ -8,7 +8,7 @@ namespace Assignment_EAP.Models
 {
     public class Market
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
@@ -16,5 +16,11 @@ namespace Assignment_EAP.Models
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public int Status { get; set; }
+        public Market()
+        {
+            CreatedAt = DateTime.Now;
+            UpdatedAt = DateTime.Now;
+            Status = 1;
+        }
     }
 }

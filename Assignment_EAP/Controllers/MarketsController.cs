@@ -9,7 +9,7 @@ namespace Assignment_EAP.Controllers
 {
     public class MarketsController : Controller
     {
-        private MyDBContext db = new MyDBContext();
+        private Assignment_EAPContext db = new Assignment_EAPContext();
 
         public ActionResult Index()
         {
@@ -25,8 +25,6 @@ namespace Assignment_EAP.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id, Name, Description, CreatedAt, UpdatedAt, Status")] Market market)
         {
-            market.CreatedAt = DateTime.Now;
-            market.UpdatedAt = DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.Markets.Add(market);
@@ -36,6 +34,13 @@ namespace Assignment_EAP.Controllers
 
             return View(market);
         }
-
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
     }
 }
